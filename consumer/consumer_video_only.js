@@ -8,7 +8,7 @@ const videoSourceBuffer = myMediaSource
   .addSourceBuffer('video/mp4; codecs="avc1.64001e"');
 
 // 2. download and add our video to the SourceBuffers
-fetch("http://server.com/video.mp4").then(function(response) {
+fetch("http://localhost:8000/video.mp4").then(function(response) {
   // The data has to be a JavaScript ArrayBuffer
   return response.arrayBuffer();
 }).then(function(videoData) {
@@ -28,20 +28,20 @@ function fetchSegment(url) {
 }
 
 // fetch all video segments
-fetchSegment("http://server.com/video/segment0.mp4")
+fetchSegment("http://localhost:8000/video/segment0.mp4")
   .then(function(videoSegment0) {
     videoSourceBuffer.appendBuffer(videoSegment0);
   });
 
   .then(function() {
-    return fetchSegment("http://server.com/video/segment1.mp4");
+    return fetchSegment("http://localhost:8000/video/segment1.mp4");
   })
   .then(function(videoSegment1) {
     videoSourceBuffer.appendBuffer(videoSegment1);
   })
 
   .then(function() {
-    return fetchSegment("http://server.com/video/segment2.mp4");
+    return fetchSegment("http://localhost:8000/video/segment2.mp4");
   })
   .then(function(videoSegment2) {
     videoSourceBuffer.appendBuffer(videoSegment2);

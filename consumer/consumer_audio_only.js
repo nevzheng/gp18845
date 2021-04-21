@@ -11,7 +11,7 @@ const audioSourceBuffer = myMediaSource
 // 2. download and add our audio to the SourceBuffers
 
 // for the audio SourceBuffer
-fetch("http://server.com/audio.mp4").then(function(response) {
+fetch("http://localhost:8000/audio.mp4").then(function(response) {
   // The data has to be a JavaScript ArrayBuffer
   return response.arrayBuffer();
 }).then(function(audioData) {
@@ -31,20 +31,20 @@ function fetchSegment(url) {
 }
 
 // fetching audio segments one after another (notice the URLs)
-fetchSegment("http://server.com/audio/segment0.mp4")
+fetchSegment("http://localhost:8000/audio/segment0.mp4")
   .then(function(audioSegment0) {
     audioSourceBuffer.appendBuffer(audioSegment0);
   })
 
   .then(function() {
-    return fetchSegment("http://server.com/audio/segment1.mp4");
+    return fetchSegment("http://localhost:8000/audio/segment1.mp4");
   })
   .then(function(audioSegment1) {
     audioSourceBuffer.appendBuffer(audioSegment1);
   })
 
   .then(function() {
-    return fetchSegment("http://server.com/audio/segment2.mp4");
+    return fetchSegment("http://localhost:8000/audio/segment2.mp4");
   })
   .then(function(audioSegment2) {
     audioSourceBuffer.appendBuffer(audioSegment2);

@@ -41,40 +41,40 @@ function fetchSegment(url) {
 }
 
 // fetching audio segments one after another (notice the URLs)
-fetchSegment("http://server.com/audio/segment0.mp4")
+fetchSegment("http://localhost:8000/audio/segment0.mp4")
   .then(function(audioSegment0) {
     audioSourceBuffer.appendBuffer(audioSegment0);
   })
 
   .then(function() {
-    return fetchSegment("http://server.com/audio/segment1.mp4");
+      return fetchSegment("http://localhost:8000/audio/segment1.mp4");
   })
   .then(function(audioSegment1) {
     audioSourceBuffer.appendBuffer(audioSegment1);
   })
 
   .then(function() {
-    return fetchSegment("http://server.com/audio/segment2.mp4");
+      return fetchSegment("http://localhost:8000/audio/segment2.mp4");
   })
   .then(function(audioSegment2) {
     audioSourceBuffer.appendBuffer(audioSegment2);
   })
 
 // same thing for video segments
-fetchSegment("http://server.com/video/segment0.mp4")
+fetchSegment("http://localhost:8000/video/segment0.mp4")
   .then(function(videoSegment0) {
     videoSourceBuffer.appendBuffer(videoSegment0);
   });
 
   .then(function() {
-    return fetchSegment("http://server.com/video/segment1.mp4");
+      return fetchSegment("http://localhost:8000/video/segment1.mp4");
   })
   .then(function(videoSegment1) {
     videoSourceBuffer.appendBuffer(videoSegment1);
   })
 
   .then(function() {
-    return fetchSegment("http://server.com/video/segment2.mp4");
+      return fetchSegment("http://localhost:8000/video/segment2.mp4");
   })
   .then(function(videoSegment2) {
     videoSourceBuffer.appendBuffer(videoSegment2);
