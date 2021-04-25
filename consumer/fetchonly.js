@@ -7,7 +7,7 @@ myMediaSource.addEventListener("sourceopen", pushToBuffer);
 fileLimit = 1000;
 currentRange = 0;
 delta = 200;
-fileURL = "/segments/audio_and_video/segment1.mp4"
+fileURL = "/consumer/segments/audio_and_video/segment1.mp4"
 
 function pushToBuffer(){
     while(currentRange < fileLimit){
