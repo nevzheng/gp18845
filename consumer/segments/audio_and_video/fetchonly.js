@@ -8,19 +8,19 @@ fileLimit = 1000;
 currentRange = 0;
 delta = 200;
 
-// change file url path as needed by server
-fileURL = "segment1.mp4"
+// change file url path here and below as needed by server
+fileURL = "segment1.mp4";
+fileCount = 1;
 
 function pushToBuffer(){
-    while(currentRange < fileLimit){
+    while(fileCount <= 4){
         fetch(fileURL, {
             method: 'GET',
             headers: {
                 "Content-Type": "video/mp4",
-                "Content-Range": `bytes ${currentRange}-${currentRange+delta}/${fileLimit}`
             }
         })
-
-        currentRange = currentRange + delta;
+        fileCount = fileCount + 1;
+        fileURL = `segment${fileCount}.mp4`;
     }
 }
