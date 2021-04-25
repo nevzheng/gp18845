@@ -1,7 +1,6 @@
-use distributor::{server, DEFAULT_PORT};
-use std::rc::Rc;
-use std::sync::{Arc, Mutex, RwLock};
 use structopt::StructOpt;
+
+use distributor::{server, DEFAULT_PORT};
 
 #[tokio::main]
 pub async fn main() -> distributor::Result<()> {
