@@ -17,5 +17,5 @@ go to http://localhost:3000/test.html
 go to http://localhost:8080/test_files/test.html
 
 ## How to run consumer with rust server backend
-use "export" to se environment variable CONTENT_ROOT to point to content folder
+use "export" to set environment variable CONTENT_ROOT to point to content folder
 > cargo run
