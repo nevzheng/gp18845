@@ -2,12 +2,16 @@
 
 ## How to run consumer with node server backend
 > npm install express
+
 > node nodeServer.js
+
 go to http://localhost:3000/test.html
 
 ## How to run consumer with multi-threaded server backend
 > cd multithreaded_server
+
 > make
+
 > ./optimized_server 8080
 go to http://localhost:8080/test_files/test.html
 
