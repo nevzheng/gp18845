@@ -1,0 +1,6 @@
+http://localhost:8080/
+http://localhost:8080/test_files/HackerNews.html
+http://localhost:8080/test_files/thisdoesnotexist.html
+http://localhost:8080/test_files/myfile.txt
+http://localhost:8080/test_files/horse.gif
+http://localhost:8080/test_files/cgg.jpg
