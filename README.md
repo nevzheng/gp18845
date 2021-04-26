@@ -13,6 +13,7 @@ go to http://localhost:3000/test.html
 > make
 
 > ./optimized_server 8080
+
 go to http://localhost:8080/test_files/test.html
 
 ## How to run consumer with rust server backend
