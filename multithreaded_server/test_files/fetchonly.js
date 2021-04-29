@@ -7,18 +7,28 @@ myMediaSource.addEventListener("sourceopen", pushToBuffer);
 fileLimit = 1000;
 currentRange = 0;
 delta = 200;
-fileURL = "/consumer/segments/audio_and_video/segment1.mp4"
+
+// change file url path here and below as needed by server
+fileURL = "/test_files/segment1.mp4";
+fileCount = 1;
 
 function pushToBuffer(){
-    while(currentRange < fileLimit){
+    while(fileCount <= 4){
         fetch(fileURL, {
             method: 'GET',
             headers: {
                 "Content-Type": "video/mp4",
-                "Content-Range": `bytes ${currentRange}-${currentRange+delta}/${fileLimit}`
             }
         })
-
-        currentRange = currentRange + delta;
+        fileCount = fileCount + 1;
+        if(fileCount === 2){
+            fileURL = "/test_files/segment2.mp4";
+        }
+        else if(fileCount === 3){
+            fileURL = "/test_files/segment3.mp4";
+        }
+        else if(fileCount === 4){
+            fileURL = "/test_files/segment4.mp4";
+        }
     }
 }

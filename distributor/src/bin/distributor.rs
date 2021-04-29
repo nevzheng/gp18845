@@ -1,5 +1,6 @@
-use distributor::{server, DEFAULT_PORT};
 use structopt::StructOpt;
+
+use distributor::{server, DEFAULT_PORT};
 
 #[tokio::main]
 pub async fn main() -> distributor::Result<()> {
@@ -13,6 +14,8 @@ pub async fn main() -> distributor::Result<()> {
     let cli = Cli::from_args();
     let port: &str = cli.port.as_deref().unwrap_or(DEFAULT_PORT);
 
+    let content_root = std::env::var("CONTENT_ROOT").expect("CONTENT_ROOT not set");
+    println!("Content Root Set to: {}", content_root);
     server::run("127.0.0.1", port).await
 }
 

@@ -16,6 +16,20 @@ pub struct ContentRange {
     size: usize,
 }
 
+impl ContentRange {
+    pub fn length(&self) -> usize {
+        self.end - self.start
+    }
+
+    pub fn start(&self) -> usize {
+        self.size
+    }
+
+    pub fn value(&self) -> String {
+        format!("{} {}-{}/{}", "bytes", self.start, self.end, self.size)
+    }
+}
+
 impl FromStr for ContentRangeUnit {
     type Err = ();
 
